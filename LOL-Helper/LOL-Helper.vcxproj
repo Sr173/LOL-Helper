@@ -153,6 +153,17 @@
   <ItemGroup>
     <ClCompile Include="LOL-Helper.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ButtonItem.hpp" />
+    <ClInclude Include="ComboxItem.hpp" />
+    <ClInclude Include="defer.hpp" />
+    <ClInclude Include="Dialog.hpp" />
+    <ClInclude Include="DialogItem.hpp" />
+    <ClInclude Include="singleton.hpp" />
+    <ClInclude Include="TextItem.hpp" />
+    <ClInclude Include="Thunk.hpp" />
+    <ClInclude Include="Window.hpp" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

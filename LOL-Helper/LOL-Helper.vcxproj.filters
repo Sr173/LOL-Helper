@@ -13,10 +13,45 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="UI">
+      <UniqueIdentifier>{65d14c96-6220-4322-b61e-4749fd7c7ab1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Design-Pattern">
+      <UniqueIdentifier>{dcb2bd23-ef8c-43e4-b1f9-08cfb97a17bd}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="LOL-Helper.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ButtonItem.hpp">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="ComboxItem.hpp">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="defer.hpp">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Dialog.hpp">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="DialogItem.hpp">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="TextItem.hpp">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Window.hpp">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="singleton.hpp">
+      <Filter>Design-Pattern</Filter>
+    </ClInclude>
+    <ClInclude Include="Thunk.hpp">
+      <Filter>Design-Pattern</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
