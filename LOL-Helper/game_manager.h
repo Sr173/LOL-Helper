@@ -12,6 +12,8 @@ public:
 	void game_loader_thread();
 	std::shared_ptr<MemRWer> game_memrwer;
 private:
+	static int get_black_memory(int size);
+
 	game_manager();
 	~game_manager() = delete;
 	void* current_game_hwnd_;

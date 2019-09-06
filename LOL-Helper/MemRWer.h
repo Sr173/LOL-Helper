@@ -12,18 +12,30 @@ public:
 	MemRWer();
 	~MemRWer();
 	bool open_by_window(void* hwnd);
-
-	void readData(void* lpAddress, int lenth, uint8_t* buffer);
+	void set_execute_code_memory(uint addr) { remote_addr_ = addr; }
 	std::wstring readWstring(uint addr);
 	std::string readString(uint addr);
 	void writeWstring(uint addr, std::wstring str);
 	int decryption(uint addr);
-	void writeData(void* lpAddress, int lenth, uint8_t * buffer);
-	void runRemoteThread(std::vector<uint8_t> opcode);
+	int runRemoteThread(std::vector<uint8_t> opcode);
+	auto get_game_handle() { return hProcess; }
+
+	template <typename T1, typename  T2>
+	void readData(T1 lpAddress, int lenth, T2 buffer)
+	{
+		readDataImpl((void*)lpAddress, lenth, (uint8_t*)buffer);
+	};
+
+	template <typename T1,typename  T2>
+	void writeData(T1 lpAddress, int lenth, T2 buffer)
+	{
+		writeDataImpl((void*)lpAddress, lenth, (uint8_t*)buffer);
+	};
+
 	template<class T>
 	T read(uint lpBaseAddress) {
-		T buffer;
-		readData(reinterpret_cast<void*>(lpBaseAddress), sizeof(T), static_cast<uint8_t*>(&buffer));
+		T buffer = 0;
+		readData(reinterpret_cast<void*>(lpBaseAddress), sizeof(T), reinterpret_cast<uint8_t*>(&buffer));
 		return buffer;
 	}
 
@@ -38,7 +50,7 @@ public:
 
 	template<class T>
 	void write(uint lpBaseAddress, T data) {
-		writeData((void*)lpBaseAddress, sizeof(T), (unsigned char**)&data);
+		writeData((void*)lpBaseAddress, sizeof(T), (unsigned char*)&data);
 	}
 
 	template<class T>
@@ -50,9 +62,12 @@ public:
 		}
 		return write<T>((uint)result + (uint)offset.end()[-1], data);
 	}
-
 private:
+	void writeDataImpl(void* lpAddress, int lenth, uint8_t* buffer);
+	void readDataImpl(void* lpAddress, int lenth, uint8_t* buffer);
+
 	void* hProcess;
 	void* hwnd;
+	uint remote_addr_;
 };
 

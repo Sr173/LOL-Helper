@@ -5,17 +5,17 @@ class AssemblyTools
 {
 public:
 	AssemblyTools() {
-		code.clear();
+		code_.clear();
 	}
 	
 	template<class T>
 	void write(T data) {
 		for (int i = 0; i < sizeof(data); i++) {
-			code.push_back(((uint8_t*)&data)[i]);
+			code_.push_back(((uint8_t*)&data)[i]);
 		}
 	}
 
-	void clear() { code.clear(); }
+	void clear() { code_.clear(); }
 
 	void pushad() {
 		write<uint8_t>(0x60);
@@ -242,9 +242,9 @@ public:
 		write<short>(value);
 	}
 	auto& getCode() {
-		return code;
+		return code_;
 	}
 private:
-	std::vector<uint8_t> code;
+	std::vector<uint8_t> code_;
 };
 

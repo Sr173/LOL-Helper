@@ -35,6 +35,12 @@
     <ClInclude Include="game_manager.h">
       <Filter>game</Filter>
     </ClInclude>
+    <ClInclude Include="game_call.h">
+      <Filter>game</Filter>
+    </ClInclude>
+    <ClInclude Include="base_address.h">
+      <Filter>game</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="LOL-Helper.cpp">
@@ -63,6 +69,9 @@
       <Filter>UI</Filter>
     </ClCompile>
     <ClCompile Include="game_manager.cpp">
+      <Filter>game</Filter>
+    </ClCompile>
+    <ClCompile Include="game_call.cpp">
       <Filter>game</Filter>
     </ClCompile>
   </ItemGroup>

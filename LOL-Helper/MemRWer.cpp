@@ -13,24 +13,29 @@ MemRWer::~MemRWer()
 
 bool MemRWer::open_by_window(void* hwnd)
 {
+	this->hwnd = hwnd;
 	DWORD id;
 	GetWindowThreadProcessId(static_cast<HWND>(hwnd), &id);
 	hProcess = OpenProcess(PROCESS_ALL_ACCESS, false, id);
 	return hProcess != nullptr;
 }
 
-void MemRWer::readData(LPVOID lpAddress, int lenth, byte * buffer)
+void MemRWer::readDataImpl(LPVOID lpAddress, int lenth, byte * buffer)
 {
 	ReadProcessMemory(hProcess, lpAddress, buffer, lenth, 0);
 }
 
-void MemRWer::writeData(LPVOID lpAddress, int lenth, byte* buffer) {
+void MemRWer::writeDataImpl(LPVOID lpAddress, int lenth, byte* buffer) {
 	WriteProcessMemory(hProcess, lpAddress, buffer, lenth, 0);
 }
 
-void MemRWer::runRemoteThread(std::vector<byte> opcode)
+int MemRWer::runRemoteThread(std::vector<byte> opcode)
 {
-
+	writeData(remote_addr_, opcode.size(), opcode.data());
+	int result = SendMessageA((HWND)hwnd, 0x34, 0, 0);
+	std::fill(opcode.begin(), opcode.end(), 0);
+	writeData(remote_addr_, opcode.size(), opcode.data());
+	return result;
 }
 
 
