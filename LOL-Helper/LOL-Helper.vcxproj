@@ -74,6 +74,7 @@
     <LinkIncremental>true</LinkIncremental>
     <IncludePath>..\third_party\imgui;$(IncludePath)</IncludePath>
     <SourcePath>..\third_party\imgui;$(SourcePath)</SourcePath>
+    <TargetName>1111</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
@@ -82,6 +83,7 @@
     <LinkIncremental>false</LinkIncremental>
     <IncludePath>..\third_party\imgui;$(IncludePath)</IncludePath>
     <SourcePath>..\third_party\imgui;$(SourcePath)</SourcePath>
+    <TargetName>1111</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>

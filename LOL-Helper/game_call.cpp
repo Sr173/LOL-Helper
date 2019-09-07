@@ -68,6 +68,11 @@ int game_call::attack_area() const
 	return game_memrwer_->read<int>(obj_ + 0x1888);
 }
 
+std::string game_call::name() const
+{
+	return game_memrwer_->readString(game_memrwer_->read<uint>(obj_ + 0x60));
+}
+
 uint32_t game_call::get_mouse_world_position_point()
 {
 	return GAME_MANAGER_INSTANCE->game_memrwer->read<uint32_t>(base_address::mouse, { 0x14 }) + 0x10;

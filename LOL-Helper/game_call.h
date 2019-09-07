@@ -17,7 +17,8 @@ public:
 	float hp() const;
 	int camp() const;
 	int attack_area() const;
-
+	std::string name() const;
+	const auto pointer() { return obj_; }
 	static uint32_t get_mouse_world_position_point();
 	static uint32_t get_last_choice_obj();
 	static float get_game_time();
